@@ -125,8 +125,8 @@ annotate TravelService.Travel with @(UI: {
     },
     {
       $Type         : 'UI.DataFieldForAction',
-      Action        : 'TravelService.update',
-      Label         : 'Update',
+      Action        : 'TravelService.updateEmail',
+      Label         : 'Update Email',
       Inline        : true,
       @UI.Importance: #High,
       @UI.Hidden    : {$edmJson: {$Ne: [

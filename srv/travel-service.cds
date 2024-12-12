@@ -16,10 +16,8 @@ service TravelService @(path:'/processor') {
     action rejectTravel();
     action acceptTravel();
     action deductDiscount( percent: Percentage not null ) returns Travel;
-
-    @cds.odata.bindingparameter.name: '_currentRow'
-    action update(
-     @UI.ParameterDefaultValue: _currentRow.to_Customer.EMailAddress
+    action updateEmail(in:$self,
+     @UI.ParameterDefaultValue: in.to_Customer.EMailAddress
      Email: input:email
     );
   };
