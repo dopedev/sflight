@@ -9,6 +9,10 @@ using {
 
 namespace sap.fe.cap.travel;
 
+
+@title         : 'Stream Content'
+@Core.MediaType: 'application/octet-stream'
+type Stream    : LargeBinary;
 entity Travel : managed {
   key TravelUUID : UUID;
   TravelID       : Integer default 0 @readonly;
@@ -22,12 +26,11 @@ entity Travel : managed {
   to_Agency      : Association to TravelAgency @mandatory;
   to_Customer    : Association to Passenger @mandatory;
   to_Booking     : Composition of many Booking on to_Booking.to_Travel = $self;
+  file: Stream;
+  DeleteRecord: Boolean = (TravelStatus.code != 'A');
 };
 
-annotate Travel with @Capabilities.FilterRestrictions.FilterExpressionRestrictions: [
-  { Property: 'BeginDate', AllowedExpressions : 'SingleRange' },
-  { Property: 'EndDate', AllowedExpressions : 'SingleRange' }
-];
+
 
 
 entity Booking : managed {

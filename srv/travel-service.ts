@@ -82,7 +82,8 @@ export class TravelService extends cds.ApplicationService { init() {
   // Action Implementations...
   //
 
-  const { acceptTravel, rejectTravel, deductDiscount } = Travel.actions;
+  const { acceptTravel, rejectTravel, deductDiscount, update } = Travel.actions;
+  this.on(update,  req => UPDATE(req.subject).with({ TravelStatus_code: TravelStatusCode.Accepted }));
   this.on (acceptTravel, req => UPDATE (req.subject) .with ({ TravelStatus_code: TravelStatusCode.Accepted }))
   this.on (rejectTravel, req => UPDATE (req.subject) .with ({ TravelStatus_code: TravelStatusCode.Canceled }))
   this.on (deductDiscount, async req => {

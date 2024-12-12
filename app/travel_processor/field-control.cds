@@ -32,7 +32,12 @@ annotate TravelService.Travel with @(Common : {
   deductDiscount @(
     Core.OperationAvailable : { $edmJson: { $Eq: [{ $Path: 'in/TravelStatus_code'}, 'O']}}
   );
+  //  update @(
+  //   Core.OperationAvailable : { $edmJson: { $Ge: [{ $Path: 'BookingFee' }, 20]}}
+  // );
 }
+
+annotate TravelService.Travel with @UI.DeleteHidden: {$edmJson: {$Eq:[{$Path:'TravelStatus_code'}, 'A']}};
 
 annotate TravelService.Travel @(
     Common.SideEffects#ReactonItemCreationOrDeletion : {
