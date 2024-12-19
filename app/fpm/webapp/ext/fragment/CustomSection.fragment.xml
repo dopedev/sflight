@@ -1,0 +1,8 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:macros="sap.fe.macros">
+	<VBox id="vbox" core:require="{ handler: 'sap/fe/cap/travel/fpm/ext/fragment/CustomSection'}">
+		
+		<Text id="text" text="{BeginDate}" />
+		<Text id="text1" text="{userdefinedModel>/prop}" />
+		<Button id="btn" text="CustomSection" press="handler.onPress" />
+	</VBox>
+</core:FragmentDefinition>
