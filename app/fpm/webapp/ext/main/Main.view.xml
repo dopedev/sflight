@@ -2,6 +2,12 @@
     xmlns:html="http://www.w3.org/1999/xhtml" controllerName="sap.fe.cap.travel.fpm.ext.main.Main">
     <Page id="Main" title="{i18n>MainTitle}">
         <content>
+        <macros:FilterBar
+						metaPath="/Travel/@com.sap.vocabularies.UI.v1.SelectionFields"
+						id="FilterBar"
+						search=".handlers.onFiltersChanged"
+						filterChanged=".handlers.onFiltersChanged"
+					/>
         <macros:Table metaPath="/Travel/@com.sap.vocabularies.UI.v1.LineItem" id="LineItemTable" disableCopyToClipboard="true" />
       
         </content>

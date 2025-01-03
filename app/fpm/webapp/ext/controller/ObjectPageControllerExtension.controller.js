@@ -20,7 +20,7 @@ sap.ui.define(['sap/ui/core/mvc/ControllerExtension',"sap/ui/model/json/JSONMode
 			}
 			
 		},
-		onRouteMatched: function(){
+		onRouteMatched: function(e){
 			MessageToast.show("Route matched invoked.");
 		}
 	});
